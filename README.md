@@ -1,0 +1,1 @@
+After accidently deleting all my previous solutions to Project Euler before I could make a backup, I guess I will have to start over from scrath. I will mostly do these in python but will probably attempt a few in other languages such as C or perl
