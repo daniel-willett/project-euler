@@ -30,4 +30,12 @@ for row in range(len(arr)):
             counter*=int(arr[row][j])
         if counter>total:
             total=counter
+
+for column in range(len(arr[0])):
+    for i in range(0,len(arr)-numDigits+1):
+        counter=1
+        for j in range(i,i+numDigits):
+            counter*=int(arr[j][column])
+        if counter>total:
+            total=counter
 print(total)
