@@ -21,6 +21,75 @@ arr = ['73167176531330624919225119674426574742355349194934',
 '05886116467109405077541002256983155200055935729725',
 '71636269561882670428252483600823257530420752963450']
 
+def northEast(x,y):
+    if x>len(arr[0])-1-13:
+        return 0
+    if y<13-1:
+        return 0
+    placeholder = 1
+    for i in range(13):
+        placeholder *= int(arr[y-i][x+i])
+    return placeholder
+
+def east(x,y):
+    if x>len(arr[0])-1-13:
+        return 0
+    placeholder = 1
+    for i in range(13):
+        placeholder *= int(arr[y][x+i])
+    return placeholder
+
+def southEast(x,y):
+    if x>len(arr[0])-1-13:
+        return 0
+    if y>len(arr)-1-13:
+        return 0
+    placeholder = 1
+    for i in range(13):
+        placeholder *= int(arr[y+i][x+i])
+    return placeholder
+
+def south(x,y):
+    if y>len(arr)-1-13:
+        return 0
+    placeholder = 1
+    for i in range(13):
+        placeholder *= int(arr[y+i][x])
+    return placeholder
+
+
+runningTotal = 0
+for y in range(len(arr)):
+    for x in range(len(arr[0])):
+        counter = []
+        counter.append(northEast(x,y))
+        counter.append(east(x,y))
+        counter.append(southEast(x,y))
+        counter.append(south(x,y))
+        largest=max(counter)
+        if largest>runningTotal:
+            runningTotal=largest
+print(runningTotal)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+
 total = 0
 numDigits=13
 for row in range(len(arr)):
@@ -39,3 +108,13 @@ for column in range(len(arr[0])):
         if counter>total:
             total=counter
 print(total)
+
+
+"""
+
+
+
+
+
+
+
