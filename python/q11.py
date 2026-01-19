@@ -35,26 +35,26 @@ E.g. at (5,7) NW would have already been covered by SE at (2,4)
 """
 
 def northEast(x,y):
-    if x>len(grid[0])-1-4:
+    if x>len(grid[0])-4:
         return 0
     if y<4-1:
         return 0
     return grid[y][x]*grid[y-1][x+1]*grid[y-2][x+2]*grid[y-3][x+3]
 
 def east(x,y):
-    if x>len(grid[0])-1-4:
+    if x>len(grid[0])-4:
         return 0
     return grid[y][x]*grid[y][x+1]*grid[y][x+2]*grid[y][x+3]
 
 def southEast(x,y):
-    if x>len(grid[0])-1-4:
+    if x>len(grid[0])-4:
         return 0
-    if y>len(grid)-1-4:
+    if y>len(grid)-4:
         return 0
     return grid[y][x]*grid[y+1][x+1]*grid[y+2][x+2]*grid[y+3][x+3]
 
 def south(x,y):
-    if y>len(grid)-1-4:
+    if y>len(grid)-4:
         return 0
     return grid[y][x]*grid[y+1][x]*grid[y+2][x]*grid[y+3][x]
 
