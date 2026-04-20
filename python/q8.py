@@ -22,9 +22,9 @@ arr = ['73167176531330624919225119674426574742355349194934',
 '71636269561882670428252483600823257530420752963450']
 
 def northEast(x,y):
-    if x>len(arr[0])-1-13:
+    if x>len(arr[0])-13:
         return 0
-    if y<13-1:
+    if y<13:
         return 0
     placeholder = 1
     for i in range(13):
@@ -32,7 +32,7 @@ def northEast(x,y):
     return placeholder
 
 def east(x,y):
-    if x>len(arr[0])-1-13:
+    if x>len(arr[0])-13:
         return 0
     placeholder = 1
     for i in range(13):
@@ -40,9 +40,9 @@ def east(x,y):
     return placeholder
 
 def southEast(x,y):
-    if x>len(arr[0])-1-13:
+    if x>len(arr[0])-13:
         return 0
-    if y>len(arr)-1-13:
+    if y>len(arr)-13:
         return 0
     placeholder = 1
     for i in range(13):
@@ -50,7 +50,7 @@ def southEast(x,y):
     return placeholder
 
 def south(x,y):
-    if y>len(arr)-1-13:
+    if y>len(arr)-13:
         return 0
     placeholder = 1
     for i in range(13):
