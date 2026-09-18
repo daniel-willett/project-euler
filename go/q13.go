@@ -1,70 +1,10 @@
 package main
-import("fmt";"strconv")
+import("fmt";"github.com/daniel-willett/common-go-methods")
 
-func reverse(nstr string) string{
-	var result string
-	for counter := len(nstr)-1; counter>=0; counter--{
-		result += string(nstr[counter])
-	}
-	return result
-}
-
-func padding(smaller string, larger string) string{
-	var smallLen int = len(smaller)
-	var largeLen int = len(larger)
-	var result string = ""
-	for i:=1; i<=largeLen-smallLen; i++{
-		result += "0" //Padding of zeros
-	}
-	result += smaller //Append the orignal part to the pad
-	return result
-}
-
-func columnAddition(x string, y string) string{
-	//Work out padding
-	if len(x)>len(y){
-		y = padding(y,x)
-	} else {
-		x = padding(x,y)
-	}
-
-	//So now at this point, x and y are of the same length
-
-	var result string = ""
-	var (
-		firstDigit = 0
-		secondDigit = 0
-		carry = 0
-		units = 0
-		total = 0
-	)
-	for index := len(x)-1; index>=0; index--{
-		firstDigit, _ = strconv.Atoi(string(x[index]))
-		secondDigit, _ = strconv.Atoi(string(y[index]))
-
-		total = firstDigit + secondDigit + carry
-
-		carry = total/10
-		units = total%10
-
-		result += strconv.Itoa(units)
-	}
-	if carry==1{
-		result += "1"
-	}
-
-	//At this point, `result` has been appended to in reverse order so we need to reverse this string
-
-	result = reverse(result)
-
-	return result
-}
 
 func main() {
-	//Go only stores integers upto 64-bit but these numbers for this problem are much bigger. So we are going to store them as strings and then impliment column addition of strings-->strings
-	
-	
-	var values = [100]string{"37107287533902102798797998220837590246510135740250",
+	var values = [100]string{
+	"37107287533902102798797998220837590246510135740250",
 	"46376937677490009712648124896970078050417018260538",
 	"74324986199524741059474233309513058123726617309629",
 	"91942213363574161572522430563301811072406154908250",
@@ -167,7 +107,7 @@ func main() {
 	var counter string = "0"
 	
 	for _, item := range values{
-		counter = columnAddition(counter, item)
+		counter, _ = common.Addition(counter, item)
 	}
 	
 	fmt.Println(counter[0:10])
