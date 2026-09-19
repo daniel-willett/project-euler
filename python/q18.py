@@ -52,4 +52,4 @@ for row in range(len(arr)-1,-1,-1):
         else:
             arr[row-1][pos] += arr[row][pos+1]
 
-print(arr[0:1])
+print(arr[0][0])
