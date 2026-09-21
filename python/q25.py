@@ -9,6 +9,4 @@ while F2//(10**999)==0:
     F1=F2
     F2=temp
     index += 1
-print(F1)
-print(F2)
 print(index)
